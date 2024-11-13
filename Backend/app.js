@@ -14,7 +14,7 @@ app.use(cors({
    }));
 
 
-mongoose.connect('mongodb+srv://salimsaifa:f4mgdKtweqWVt4BW@firstcluster.ucwgq.mongodb.net/')
+mongoose.connect('your monogodb id and password with link')
         .then(console.log('Connected to MongoDB'));
 const Movie = mongoose.model('Movie', new mongoose.Schema({
     moviename: String,
