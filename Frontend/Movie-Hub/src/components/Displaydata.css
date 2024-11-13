@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e5ec; /* Light background for neumorphism */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.app-container {
+    display: flex;
+    justify-content: space-between; /* Arrange AddData and DisplayData side by side */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Adds spacing between components */
+    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-data-container, .display-data-container {
+    width: 48%; /* Each component will take 48% of the width */
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    background: #e0e5ec; /* Light background for neumorphism */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 123, 255, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.7); /* Bluish neumorphic shadow */
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    animation: slideInFromBottom 1s ease-in-out;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: none; /* Remove the normal border for neumorphism */
+    border-radius: 10px; /* Soft rounded corners */
+    background: #e0e5ec; /* Light background for each cell */
+    box-shadow: inset 4px 4px 6px rgba(0, 123, 255, 0.2), inset -4px -4px 6px rgba(255, 255, 255, 0.7); /* Inset bluish neumorphism effect */
+    font-size: 14px;
+    color: #333;
+}
+
+th {
+    background-color: #cce7ff; /* Light bluish background */
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e6f7ff;
+    transition: background-color 0.3s;
+}
+
+td {
+    color: #333;
+}
+
+/* Animations */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column; /* Stack components vertically on small screens */
+    }
+
+    th, td {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-container {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 325px) {
+    /* For very small screens, such as on mobile devices with widths <= 325px */
+    .table-container {
+        padding: 10px; /* Adjust padding for very small screens */
+        width: 100%; /* Ensure form container takes full width */
+        max-width: 100%; /* Remove max-width constraint */
+    }
+
+    table {
+        font-size: 10px; /* Reduce font size for very small screens */
+    }
+
+    th, td {
+        padding: 5px 8px; /* Reduce padding for small screens */
+        font-size: 10px; /* Smaller font for better fitting */
+    }
+
+    h1 {
+        font-size: 18px; /* Smaller title font size for small screens */
+    }
+
+    /* Ensure AddData and DisplayData are stacked on top for very small screens */
+    .app-container {
+        flex-direction: column;
+        gap: 10px; /* Adjust gap between stacked components */
+    }
+
+    .add-data-container, .display-data-container {
+        width: 100%; /* Ensure both containers take the full width */
+    }
+}

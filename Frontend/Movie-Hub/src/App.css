@@ -1,0 +1,29 @@
+/* App.css */
+.app-container {
+  display: flex;
+  justify-content: space-between; /* Place the components on either side */
+  align-items: flex-start; /* Align items to the top */
+  padding: 20px;
+  gap: 20px; /* Adds spacing between the components */
+}
+
+.add-data-container, .display-data-container {
+  width: 48%; /* Each component will take up roughly half the container */
+  display: flex;
+  flex-direction: column; /* Ensure content inside is stacked vertically */
+  justify-content: flex-start; /* Align content to the top */
+  height: 100%; /* Ensure both containers take up equal height */
+  box-sizing: border-box; /* Prevent padding from affecting width/height */
+}
+
+/* Ensuring consistency across different screen sizes */
+@media (max-width: 768px) {
+  .app-container {
+      flex-direction: column; /* Stack the components vertically */
+      gap: 10px; /* Adjust the gap */
+  }
+
+  .add-data-container, .display-data-container {
+      width: 100%; /* Make both components take the full width on small screens */
+  }
+}

@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #e0e5ec; /* Light background for neumorphism */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.app-container {
+    display: flex;
+    justify-content: space-between; /* Row-wise layout */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Adds spacing between components */
+    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-data-container, .display-data-container {
+    width: 48%; /* Each component takes 48% of available width */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #e0e5ec; /* Light background matching neumorphism style */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 10px 10px 15px rgba(168, 184, 211, 0.4), -10px -10px 15px rgba(255, 255, 255, 0.7);
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 12px;
+    background: #e0e5ec;
+    box-shadow: inset 4px 4px 6px rgba(168, 184, 211, 0.4), inset -4px -4px 6px rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    transition: box-shadow 0.3s;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+    box-shadow: inset 4px 4px 6px rgba(168, 184, 211, 0.4), inset -4px -4px 6px rgba(255, 255, 255, 0.7), 0 0 8px rgba(0, 123, 255, 0.7);
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background-color: #e0e5ec;
+    box-shadow: inset 4px 4px 6px rgba(168, 184, 211, 0.4), inset -4px -4px 6px rgba(255, 255, 255, 0.7), 0 0 15px rgba(0, 123, 255, 0.4);
+    color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: box-shadow 0.3s, background-color 0.3s;
+    box-sizing: border-box;
+}
+
+form button:hover {
+    background-color: #f5f7fa;
+    box-shadow: inset 4px 4px 6px rgba(168, 184, 211, 0.4), inset -4px -4px 6px rgba(255, 255, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+form button:active {
+    box-shadow: inset 4px 4px 6px rgba(168, 184, 211, 0.4), inset -4px -4px 6px rgba(255, 255, 255, 0.7), inset 2px 2px 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Ensuring no overflow on mobile screens */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column; /* Stack AddData and DisplayData vertically on smaller screens */
+    }
+
+    form {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 20px; /* Smaller title font size */
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form button {
+        width: 100%; /* Make inputs and buttons take full width */
+        font-size: 14px; /* Slightly smaller text on smaller screens */
+    }
+}
+
+@media (max-width: 325px) {
+    body {
+        padding: 10px;
+    }
+
+    .app-container {
+        flex-direction: column;
+        gap: 10px; /* Adjust gap between stacked components */
+    }
+
+    .add-data-container, .display-data-container {
+        width: 100%; /* Ensure each container takes full width */
+    }
+
+    form {
+        padding: 15px; /* Reduce padding on very small screens */
+        width: 100%; /* Ensure form takes the full width */
+        max-width: 100%; /* Remove max-width constraint */
+    }
+
+    h1 {
+        font-size: 18px; /* Smaller title font size */
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form button {
+        font-size: 12px; /* Smaller font size on very small screens */
+    }
+}
